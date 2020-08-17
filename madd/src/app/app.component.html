@@ -1,0 +1,16 @@
+<div>
+  <h1>{{title}}</h1>
+  <div>
+      <button [disabled]="isLocked">{{play}}</button>
+  </div>
+  <div>
+    <label>{{pullLabel}}</label>
+     <div>
+      <button class="btn" (click)="pickColor('pull')" [style.backgroundColor]="pullColor"></button>
+     </div>
+    <label>{{pushLabel}}</label>
+    <div>
+      <button class="btn" (click)="pickColor('push')" [style.backgroundColor]="pushColor"></button>
+    </div>
+  </div>
+</div>
