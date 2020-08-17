@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "madd"
+    }
+  },
+  "defaultProject": "madd",
+  "cli": {
+    "analytics": "7f7c7e68-2a2d-425a-b6a5-4d933b46d2be"
+  }
 }
