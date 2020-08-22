@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessengerService } from 'src/app/service/messenger.service';
 
 @Component({
   selector: 'app-start',
@@ -18,13 +19,16 @@ export class StartComponent implements OnInit {
   pullColor = null;
   pushColor = null;
 
-  constructor(private router: Router) {
+  message: any;
+
+  constructor(private router: Router, private messenger: MessengerService) {
   }
 
   ngOnInit() {
-    console.log("hi i am in init");
+
         this.pullColor = this.nullColor; // the null color
         this.pushColor = this.nullColor;
+        this.messenger.currentMessage.subscribe(message => this.message = message);
     }
   // function responsible for picking a random color and assigning it to a variable;
   pickColor(type){
@@ -49,6 +53,7 @@ export class StartComponent implements OnInit {
     // TODO to pass on pull and push color use a service
     // with service pass message from start and receive in onInit play
     this.router.navigateByUrl('/play');
+    this.messenger.changeMessage({'pullColor': this.pullColor, 'pushColor': this.pushColor});
   }
 
   ngDoCheck():void {
