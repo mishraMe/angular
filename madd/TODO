@@ -1,0 +1,8 @@
+next steps ...
+1. Add game should exit after 15 rounds
+2. User should act within 10 seconds or the picture will pass as soon as the timer goes off
+3. when user acts pull push the image should zoom in zoom out
+4. the  changing of picture depends on the timer and what picture type will be decided by the background color (pull/push)
+5. Add a admin side to add more pictures into the folders or change the pictures in the folder
+6. as the picture format needs to be jpg, write a functions to change all the pictures to jpg.
+5. Also the buttons need a nicer font and feel and so should the play button

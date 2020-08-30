@@ -17,9 +17,12 @@ export class PlayComponent implements OnInit, OnDestroy {
     message: any;
     subscription: Subscription;
     value = 0;
+    randomImageIndex = 0;
     bgColor = '';
     pullColor = null;
     pushColor = null;
+    folder = "";
+    imageToDisplay = null;
     timer = interval(1000);
 
   constructor( @Inject(DOCUMENT) private document: Document, private messenger: MessengerService){}
@@ -34,12 +37,20 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   startGame(): void{
     this.value = Math.random();
+    this.randomImageIndex = Math.random() * 10;
     if(this.value > 0.5){
         this.bgColor = this.pullColor;
+        this.folder = "pull-images";
+        this.imageToDisplay = 1;
       }else{
         this.bgColor = this.pushColor;
+        this.folder = "push-images";
+        this.imageToDisplay = 1;
+      }
+      if(this.bgColor == this.pushColor){
       }
     this.document.querySelector("html").style.backgroundColor = this.bgColor;
+
   }
 
   ngOnDestroy(): void{
