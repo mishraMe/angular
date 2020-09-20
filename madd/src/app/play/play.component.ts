@@ -23,7 +23,9 @@ export class PlayComponent implements OnInit, OnDestroy {
     pushColor = null;
     folder = "";
     imageToDisplay = null;
-    timer = interval(1000);
+    currentImage: HTMLImageElement;
+    currentImageSrc = null;
+    timer = interval(2000);
     prevXPos = null;
     prevYPos = null;
     deltaX = null;
@@ -47,13 +49,15 @@ export class PlayComponent implements OnInit, OnDestroy {
     if(this.randomChanceOfBg > 0.5){
         this.bgColor = this.pullColor;
         this.folder = "pull-images";
-        this.imageToDisplay = 1;
+        this.imageToDisplay = "assets/" + this.folder + "/img" + 1 + ".jpg";
       }else{
         this.bgColor = this.pushColor;
         this.folder = "push-images";
-        this.imageToDisplay = 1;
+        this.imageToDisplay =  "assets/" + this.folder + "/img" + 1 + ".jpg";
       }
     this.document.querySelector("html").style.backgroundColor = this.bgColor;
+    this.document.querySelector("html").style.backgroundImage = null;
+    this.currentImageSrc = this.imageToDisplay;
   }
 
    handleEvent($event){
@@ -67,14 +71,15 @@ export class PlayComponent implements OnInit, OnDestroy {
       this.prevYPos = $event.screenY;
       if(this.deltaY < 0){
        console.log("image pushed");
+       this.imageToDisplay = null;
         //reduce size
-      }else if( this.deltaY > 0 ){
-        console.log("image pulled");
-        //increase pic size
-        //fit the image to screen
+      }else if(this.deltaY > 0) {
+        this.document.querySelector("html").style.backgroundImage = "url(" + this.currentImageSrc + ")";
+        this.document.querySelector("html").style.backgroundColor = null;
+        this.imageToDisplay = null;
       }
+     }
     }
-  }
 
   ngOnDestroy(): void{
     this.subscription.unsubscribe();
