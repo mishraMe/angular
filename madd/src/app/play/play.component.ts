@@ -49,11 +49,11 @@ export class PlayComponent implements OnInit, OnDestroy {
     if(this.randomChanceOfBg > 0.5){
         this.bgColor = this.pullColor;
         this.folder = "pull-images";
-        this.imageToDisplay = "assets/" + this.folder + "/img" + this.randomImageIndex + ".jpg";
+        this.imageToDisplay = "assets/" + this.folder + "/img" + this.randomImageIndex + ".png";
       }else{
         this.bgColor = this.pushColor;
         this.folder = "push-images";
-        this.imageToDisplay =  "assets/" + this.folder + "/img" + this.randomImageIndex + ".jpg";
+        this.imageToDisplay =  "assets/" + this.folder + "/img" + this.randomImageIndex + ".png";
       }
     this.document.querySelector("html").style.backgroundColor = this.bgColor;
     this.document.querySelector("html").style.backgroundImage = null;

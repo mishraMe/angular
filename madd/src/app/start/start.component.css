@@ -1,2 +1,40 @@
+.welcome-page{
+  display: block;
+   position: fixed;
+    top: 38%;
+    left: 44%;
+}
 
+.title{
+  color: white;
+  font-size: 50px;
+}
+
+.btn{
+  padding: 15px 75px;
+  position: center;
+}
+
+.label{
+  font-size: 25px;
+  padding-right : 40px;
+  font-weight: bold;
+  color: bisque;
+}
+
+.colors-div{
+  margin-left : -60px;
+}
+
+.play-btn{
+  padding: 15px 80px;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+}
+
+.play-div{
+  padding-top: 40px;
+  margin-left: -15px;
+}
 
