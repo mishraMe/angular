@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit, OnDestroy, Inject, HostListener } from '@angular/core';
 import { MessengerService } from "src/app/service/messenger.service";
 import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 import { interval, Subscription } from "rxjs";
 
 
@@ -30,10 +31,22 @@ export class PlayComponent implements OnInit, OnDestroy {
     prevYPos = null;
     deltaX = null;
     deltaY = null;
+    welcomeBackground = "assets/trees.jpg";
 
 
 
-  constructor( @Inject(DOCUMENT) private document: Document, private messenger: MessengerService){}
+  constructor( @Inject(DOCUMENT) private document: Document,
+   private messenger: MessengerService, private router: Router){}
+
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyPress(event: KeyboardEvent) {
+    if(event.key === 'Escape'){
+      this.document.querySelector("html").style.backgroundImage = "url(" + this.welcomeBackground + ")";
+      this.document.querySelector("html").style.backgroundColor = null;
+      this.router.navigateByUrl('/welcome');
+    }
+  }
 
   ngOnInit(): void {
     this.messenger.currentMessage.subscribe(message => this.message = message);
@@ -80,6 +93,7 @@ export class PlayComponent implements OnInit, OnDestroy {
       }
      }
     }
+
 
   ngOnDestroy(): void{
     this.subscription.unsubscribe();
