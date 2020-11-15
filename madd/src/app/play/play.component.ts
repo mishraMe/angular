@@ -46,6 +46,10 @@ export class PlayComponent implements OnInit, OnDestroy {
       this.document.querySelector("html").style.backgroundColor = null;
       this.router.navigateByUrl('/welcome');
     }
+    if(event.key === 'a'){
+      this.document.querySelector("html").style.backgroundColor = 'white';
+      this.router.navigateByUrl('/admin');
+    }
   }
 
   ngOnInit(): void {
@@ -73,7 +77,7 @@ export class PlayComponent implements OnInit, OnDestroy {
     this.currentImageSrc = this.imageToDisplay;
   }
 
-   handleEvent($event){
+  handleEvent($event){
     if(this.prevXPos === null && this.prevYPos === null){
       this.prevXPos = $event.screenX;
       this.prevYPos = $event.screenY;
