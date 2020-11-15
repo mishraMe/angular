@@ -8,7 +8,9 @@ import { AdminComponent } from 'src/app/admin-dashboard/admin/admin.component';
     { path: '', redirectTo: '/welcome', pathMatch: 'full' },
     { path: 'welcome', component: StartComponent},
     { path: 'play', component: PlayComponent},
-    { path: 'admin', component: AdminComponent}
+    { path: 'admin',
+      loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule)
+    }
   ];
 
 @NgModule({

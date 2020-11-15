@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PictureSelectorComponent } from './picture-selector/picture-selector.component';
+import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
 import { AdminComponent } from './admin/admin.component';
 
 
 
 @NgModule({
   declarations: [
-      PictureSelectorComponent,
       AdminComponent
 ],
   imports: [
-    CommonModule
+    CommonModule,
+    AdminDashboardRoutingModule
   ]
 })
 export class AdminDashboardModule { }
