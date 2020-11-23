@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayComponent } from './play/play.component';
 import { StartComponent } from './start/start.component';
+import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { StartComponent } from './start/start.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminDashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

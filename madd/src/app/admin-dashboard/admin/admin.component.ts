@@ -20,7 +20,7 @@ export class AdminComponent implements OnInit {
 
   }
 
-  addColors(action){
+  addPictures(action){
     this.showPictures = true;
   }
 
