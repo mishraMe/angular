@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,19 +10,15 @@ export class AdminComponent implements OnInit {
 
    pushColors = "Push Colors"
    pullColors = "Pull Colors"
-   pullFolder = "src\assets\pull-images";
-   pushFolder = "src\assets\push-images";
-   srcFolder = "Pictures";
-   showPictures = false;
 
-   constructor() { }
+   constructor(private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
   addPictures(action){
-    this.showPictures = true;
+    this.router.navigate(['/admin/pictures', action]);
   }
 
 }

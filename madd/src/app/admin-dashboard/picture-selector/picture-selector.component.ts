@@ -1,4 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, onDestroy} from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-picture-selector',
   templateUrl: './picture-selector.component.html',
@@ -6,9 +7,17 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 export class PictureSelectorComponent implements OnInit {
 
-  constructor() { }
+  action: String;
+  private sub: any;
+  constructor( private route : ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.sub = this.route.params.subscribe(params =>{
+      this.action = params['action'];
+    });
   }
 
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 }

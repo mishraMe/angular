@@ -8,7 +8,7 @@ import { PictureSelectorComponent } from 'src/app/admin-dashboard/picture-select
       component: AdminComponent,
       children: [
         {
-          path: 'pictures', component: PictureSelectorComponent
+          path: 'pictures/:action', component: PictureSelectorComponent
         }
       ],
     }
