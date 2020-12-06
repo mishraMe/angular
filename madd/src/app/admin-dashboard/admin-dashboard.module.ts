@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
 import { AdminComponent } from './admin/admin.component';
 import { PictureSelectorComponent} from './picture-selector/picture-selector.component';
+import {FormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -13,7 +16,9 @@ import { PictureSelectorComponent} from './picture-selector/picture-selector.com
 ],
   imports: [
     CommonModule,
-    AdminDashboardRoutingModule
+    AdminDashboardRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   exports: [
     AdminComponent,

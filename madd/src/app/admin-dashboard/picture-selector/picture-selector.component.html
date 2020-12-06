@@ -1,1 +1,4 @@
-<p>picture-selector works!</p>
+<div>
+  <input type="url" [(ngModel)]="source" (keypress)="save($event)">
+  <img src="{{file}}" *ngIf="file" style="display: block"/>
+</div>

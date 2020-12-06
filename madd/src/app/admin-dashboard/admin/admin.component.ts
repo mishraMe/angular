@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-   pushColors = "Push Colors"
-   pullColors = "Pull Colors"
+   pushPictures = "Push Pictures"
+   pullPictures = "Pull Pictures"
 
    constructor(private router: Router) { }
 
