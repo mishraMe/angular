@@ -1,5 +1,5 @@
 <div>
-  <button class="btn" (click)="addPictures('pull')">{{pullPictures}}</button>
-  <button class="btn" (click)="addPictures('push')">{{pushPictures}}</button>
-  <router-outlet></router-outlet>
+  <input type="file" (change)="addPictures($event)"/>
+  <button (click)="upload('pull')">{{pullPictures}}</button>
+  <button (click)="upload('push')">{{pushPictures}}</button>
 </div>

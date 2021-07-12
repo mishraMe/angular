@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {ImageService} from "../../service/ImageService";
+
 
 @Component({
   selector: 'app-admin',
@@ -10,15 +12,20 @@ export class AdminComponent implements OnInit {
 
    pushPictures = "Push Pictures"
    pullPictures = "Pull Pictures"
-
-   constructor(private router: Router) { }
+   fileToUpload: File = null;
+   constructor(private router: Router, private imageService: ImageService) { }
 
   ngOnInit(): void {
 
   }
 
-  addPictures(action){
-    this.router.navigate(['/admin/pictures', action]);
+  addPictures(event){
+    this.fileToUpload = event.target.files[0];
+  }
+  upload(type : string){
+    const fd = new FormData();
+    fd.append('image', this.fileToUpload, this.fileToUpload.name);
+
   }
 
 }
